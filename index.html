@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loubna Msadk - Portfolio Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(200, 200, 200, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(180, 180, 180, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(150, 150, 150, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite;
+            box-shadow: 0 0 5px rgba(150, 150, 150, 0.2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-name {
+            font-size: 5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            animation: slideDown 1s ease-out;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title {
+            font-size: 2em;
+            font-weight: 600;
+            color: #5a5a5a;
+            margin-bottom: 50px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .projects-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #5a5a5a;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .project-button {
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            padding: 40px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03), transparent);
+            transition: left 0.5s;
+        }
+
+        .project-button:hover::before {
+            left: 100%;
+        }
+
+        .project-button:hover {
+            transform: translateY(-10px);
+            border-color: #2c3e50;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+        }
+
+        .project-button.active {
+            border-color: #2c3e50;
+            background: #2c3e50;
+            box-shadow: 0 8px 30px rgba(44, 62, 80, 0.3);
+        }
+
+        .project-button.active .project-name {
+            color: #ffffff;
+        }
+
+        .project-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .project-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            transition: color 0.3s;
+        }
+
+        .project-details {
+            display: none;
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 24px;
+            padding: 60px;
+            margin-top: 40px;
+            animation: slideIn 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-details.active {
+            display: block;
+        }
+
+        .project-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2c3e50, #34495e, #1a1a1a);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .details-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .details-title {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .close-btn {
+            background: rgba(44, 62, 80, 0.1);
+            border: 2px solid #2c3e50;
+            color: #2c3e50;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.5em;
+        }
+
+        .close-btn:hover {
+            background: #2c3e50;
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .project-structure {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .structure-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid #2c3e50;
+        }
+
+        .structure-label {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .structure-text {
+            color: #4a4a4a;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .structure-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .structure-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        .structure-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 1.5em;
+            top: 10px;
+        }
+
+        .industrial-competencies {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 16px;
+            border: 2px solid #2c3e50;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .competencies-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .competencies-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .competency-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #2c3e50;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .competency-item:hover {
+            background: #2c3e50;
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .competency-item::before {
+            content: '⚙️';
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-name {
+                font-size: 2.5em;
+            }
+            .hero-title {
+                font-size: 1.3em;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .project-details {
+                padding: 30px;
+            }
+            .competencies-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="hero">
+        <div class="container">
+            <h1 class="hero-name">Loubna Msadk</h1>
+            <p class="hero-title">Portfolio - Ingénierie & Managment Industriel</p>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="40" viewBox="0 0 30 40">
+                <rect x="5" y="5" width="20" height="30" rx="10" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <circle cx="15" cy="15" r="3" fill="#2c3e50">
+                    <animate attributeName="cy" from="15" to="25" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </div>
+
+    <div class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Projets & Réalisations</h2>
+                <p class="section-subtitle">Cliquez sur un projet pour découvrir les détails</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-button" onclick="showProject(1)">
+                    <span class="project-icon">📊</span>
+                    <div class="project-name">Business Intelligence Dashboard</div>
+                </div>
+
+                <div class="project-button" onclick="showProject(2)">
+                    <span class="project-icon">🏭</span>
+                    <div class="project-name">Audit Qualité ISO 9001 IA</div>
+                </div>
+
+                <div class="project-button" onclick="showProject(3)">
+                    <span class="project-icon">🚗</span>
+                    <div class="project-name">Voice of Customer Analytics</div>
+                </div>
+
+                <div class="project-button" onclick="showProject(4)">
+                    <span class="project-icon">🔧</span>
+                    <div class="project-name">Optimisation SAV & CRM</div>
+                </div>
+
+                <div class="project-button" onclick="showProject(5)">
+                    <span class="project-icon">📈</span>
+                    <div class="project-name">Project Control Dashboard</div>
+                </div>
+
+                <div class="project-button" onclick="showProject(6)">
+                    <span class="project-icon">💊</span>
+                    <div class="project-name">Supply Chain Pharmaceutique IA</div>
+                </div>
+            </div>
+
+            <!-- Projet 1 -->
+            <div class="project-details" id="project-1">
+                <div class="details-header">
+                    <h3 class="details-title">Business Intelligence Dashboard - Ventes</h3>
+                    <div class="close-btn" onclick="closeProject()">×</div>
+                </div>
+
+                <div class="project-structure">
+                    <div class="structure-section">
+                        <div class="structure-label">📋 Problem Statement</div>
+                        <div class="structure-text">
+                            Dans un environnement commercial compétitif, l'absence de visibilité en temps réel sur les performances des ventes limite la capacité de réaction et d'adaptation stratégique. Les données dispersées ralentissent la prise de décision et réduisent l'efficacité opérationnelle.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">💡 Solution</div>
+                        <div class="structure-text">
+                            Développement d'un système de Business Intelligence intégré basé sur Power BI, centralisant les données commerciales et automatisant la génération de rapports. Architecture modulaire permettant une visualisation dynamique des KPIs stratégiques.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">🎯 Key Findings</div>
+                        <ul class="structure-list">
+                            <li>Réduction de 70% du temps d'analyse des données commerciales</li>
+                            <li>Augmentation de 40% de la réactivité décisionnelle grâce à la visibilité temps réel</li>
+                            <li>Centralisation de 15+ KPIs stratégiques dans un dashboard unifié</li>
+                            <li>Amélioration de 35% de la précision des prévisions de ventes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industrial-competencies">
+                    <div class="competencies-title">🏭 Compétences en Ingénierie Industrielle</div>
+                    <div class="competencies-list">
+                        <div class="competency-item">Analyse des performances opérationnelles</div>
+                        <div class="competency-item">Gestion des indicateurs de performance (KPIs)</div>
+                        <div class="competency-item">Pilotage stratégique par la donnée</div>
+                        <div class="competency-item">Amélioration continue des processus</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-details" id="project-2">
+                <div class="details-header">
+                    <h3 class="details-title">Plateforme d'Audit Qualité ISO 9001 Intelligente</h3>
+                    <div class="close-btn" onclick="closeProject()">×</div>
+                </div>
+
+                <div class="project-structure">
+                    <div class="structure-section">
+                        <div class="structure-label">📋 Problem Statement</div>
+                        <div class="structure-text">
+                            Les audits qualité ISO 9001 manuels sont chronophages, sujets aux erreurs humaines et manquent d'objectivité. Cette approche traditionnelle limite la fréquence des audits et retarde la détection des non-conformités critiques.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">💡 Solution</div>
+                        <div class="structure-text">
+                            Plateforme intelligente intégrant un moteur NLP pour l'analyse sémantique automatique des réponses d'audit. Algorithmes de Machine Learning pour la classification des conformités et génération de recommandations ciblées d'amélioration.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">🎯 Key Findings</div>
+                        <ul class="structure-list">
+                            <li>Automatisation complète du processus d'audit (gain de 80% de temps)</li>
+                            <li>Analyse intelligente de 100+ questions par chapitre ISO 9001</li>
+                            <li>Détection automatique des non-conformités avec précision de 92%</li>
+                            <li>Génération de plans d'action correctifs personnalisés en temps réel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industrial-competencies">
+                    <div class="competencies-title">🏭 Compétences en Management de la Qualité</div>
+                    <div class="competencies-list">
+                        <div class="competency-item">Systèmes de Management Qualité ISO 9001</div>
+                        <div class="competency-item">Audit et conformité réglementaire</div>
+                        <div class="competency-item">Optimisation des processus qualité</div>
+                        <div class="competency-item">Déploiement d'outils d'amélioration continue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-details" id="project-3">
+                <div class="details-header">
+                    <h3 class="details-title">Voice of Customer Analytics - Secteur Automobile</h3>
+                    <div class="close-btn" onclick="closeProject()">×</div>
+                </div>
+
+                <div class="project-structure">
+                    <div class="structure-section">
+                        <div class="structure-label">📋 Problem Statement</div>
+                        <div class="structure-text">
+                            Dans l'industrie automobile, l'exploitation manuelle des retours clients sur les composants critiques (freins, sièges, systèmes audio) entraîne une perte d'insights précieux pour la prévention des défauts et l'amélioration de la qualité produit.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">💡 Solution</div>
+                        <div class="structure-text">
+                            Plateforme SynapseAI exploitant le Machine Learning pour l'analyse automatique des sentiments clients. Intégration API Hugging Face pour la génération de recommandations techniques actionnables et priorisation des interventions.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">🎯 Key Findings</div>
+                        <ul class="structure-list">
+                            <li>Classification automatique de 500+ avis clients par jour avec 89% de précision</li>
+                            <li>Réduction de 65% du temps de traitement des réclamations</li>
+                            <li>Dashboard opérateur avec système de priorisation (urgent/haute/moyenne)</li>
+                            <li>Génération automatique d'actions correctives basées sur l'IA</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industrial-competencies">
+                    <div class="competencies-title">🏭 Compétences en Excellence Opérationnelle</div>
+                    <div class="competencies-list">
+                        <div class="competency-item">Voice of Customer (VoC) & Six Sigma</div>
+                        <div class="competency-item">Analyse des défauts et FMEA</div>
+                        <div class="competency-item">Amélioration continue (Kaizen)</div>
+                        <div class="competency-item">Gestion de la relation client industrielle</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 4 -->
+            <div class="project-details" id="project-4">
+                <div class="details-header">
+                    <h3 class="details-title">Optimisation SAV & CRM - Renault Khawla Auto</h3>
+                    <div class="close-btn" onclick="closeProject()">×</div>
+                </div>
+
+                <div class="project-structure">
+                    <div class="structure-section">
+                        <div class="structure-label">📋 Problem Statement</div>
+                        <div class="structure-text">
+                            Gestion manuelle des rendez-vous SAV générant des temps morts importants, tâches répétitives sans valeur ajoutée et faible visibilité sur la charge de travail. Impact direct sur la satisfaction client et la productivité de l'atelier.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">💡 Solution</div>
+                        <div class="structure-text">
+                            Digitalisation complète du processus SAV avec CRM centralisé, automatisation des workflows et optimisation de la planification. Application des principes Lean (VSM, 5S) pour éliminer les gaspillages et améliorer le flux de valeur.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">🎯 Key Findings</div>
+                        <ul class="structure-list">
+                            <li>Réduction de 45% des temps morts entre interventions</li>
+                            <li>Amélioration de 60% de la productivité opérateur SAV</li>
+                            <li>Centralisation de 100% des données clients dans le CRM</li>
+                            <li>Diminution de 50% des tâches administratives répétitives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industrial-competencies">
+                    <div class="competencies-title">🏭 Compétences en Lean Management</div>
+                    <div class="competencies-list">
+                        <div class="competency-item">Lean Manufacturing & VSM</div>
+                        <div class="competency-item">Élimination des gaspillages (Muda)</div>
+                        <div class="competency-item">Optimisation des flux de travail</div>
+                        <div class="competency-item">Process Mining & Amélioration continue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 5 -->
+            <div class="project-details" id="project-5">
+                <div class="details-header">
+                    <h3 class="details-title">Project Control Dashboard - JESA Engineering</h3>
+                    <div class="close-btn" onclick="closeProject()">×</div>
+                </div>
+
+                <div class="project-structure">
+                    <div class="structure-section">
+                        <div class="structure-label">📋 Problem Statement</div>
+                        <div class="structure-text">
+                            Dans les projets d'ingénierie complexes, la préparation manuelle des rapports de performance (EVM) est chronophage et ralentit la prise de décision. Difficulté à visualiser rapidement les dérives coûts/délais et anticiper les risques.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">💡 Solution</div>
+                        <div class="structure-text">
+                            Tableau de bord exécutif avec architecture modulaire, automatisation complète du calcul des KPIs (CPI, SPI, EAC, VAC), modélisation de la courbe en S pour projection et assistant IA pour recommandations stratégiques.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">🎯 Key Findings</div>
+                        <ul class="structure-list">
+                            <li>Réduction de 75% du temps de préparation des rapports EVM</li>
+                            <li>Calcul automatique de 10+ indicateurs clés (CPI, SPI, EAC, VAC, TCPI)</li>
+                            <li>Visualisation en temps réel avec courbe en S et projections</li>
+                            <li>Alertes prédictives sur les dérives budgétaires et planning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industrial-competencies">
+                    <div class="competencies-title">🏭 Compétences en Gestion de Projet Industriel</div>
+                    <div class="competencies-list">
+                        <div class="competency-item">Project Control & Earned Value Management</div>
+                        <div class="competency-item">Gestion des coûts et délais (CPI, SPI)</div>
+                        <div class="competency-item">Planification et suivi de projets complexes</div>
+                        <div class="competency-item">Reporting et pilotage de la performance</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 6 -->
+            <div class="project-details" id="project-6">
+                <div class="details-header">
+                    <h3 class="details-title">Supply Chain Pharmaceutique IA - PharmaStock L.A.M.O</h3>
+                    <div class="close-btn" onclick="closeProject()">×</div>
+                </div>
+
+                <div class="project-structure">
+                    <div class="structure-section">
+                        <div class="structure-label">📋 Problem Statement</div>
+                        <div class="structure-text">
+                            Gestion pharmaceutique manuelle exposée aux ruptures de stock critiques, traitement lent des commandes et prévisions imprécises de la demande. Impact direct sur la disponibilité des médicaments et la satisfaction patient.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">💡 Solution</div>
+                        <div class="structure-text">
+                            Solution intelligente exploitant l'IA et les LLM pour l'analyse automatique des emails de commande, optimisation prédictive des niveaux de stock et dashboard décisionnel temps réel pour la gestion des approvisionnements.
+                        </div>
+                    </div>
+
+                    <div class="structure-section">
+                        <div class="structure-label">🎯 Key Findings</div>
+                        <ul class="structure-list">
+                            <li>Prévention automatique des ruptures de stock avec précision de 87%</li>
+                            <li>Traitement intelligent de 200+ emails de commande par jour</li>
+                            <li>Réduction de 40% des coûts de stockage par optimisation des niveaux</li>
+                            <li>Dashboard prédictif pour anticipation de la demande sur 30 jours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="industrial-competencies">
+                    <div class="competencies-title">🏭 Compétences en Supply Chain & Logistique</div>
+                    <div class="competencies-list">
+                        <div class="competency-item">Gestion des stocks et prévisions</div>
+                        <div class="competency-item">Supply Chain Management & Optimisation</div>
+                        <div class="competency-item">Logistique et gestion des flux</div>
+                        <div class="competency-item">Analyse prédictive et demande</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        let currentProject = null;
+
+        function showProject(projectId) {
+            if (currentProject) {
+                document.getElementById('project-' + currentProject).classList.remove('active');
+                document.querySelectorAll('.project-button')[currentProject - 1].classList.remove('active');
+            }
+
+            const projectElement = document.getElementById('project-' + projectId);
+            projectElement.classList.add('active');
+            document.querySelectorAll('.project-button')[projectId - 1].classList.add('active');
+
+            currentProject = projectId;
+
+            setTimeout(() => {
+                projectElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function closeProject() {
+            if (currentProject) {
+                document.getElementById('project-' + currentProject).classList.remove('active');
+                document.querySelectorAll('.project-button')[currentProject - 1].classList.remove('active');
+                currentProject = null;
+
+                document.querySelector('.projects-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const particles = document.querySelectorAll('.particle');
+            const scrolled = window.pageYOffset;
+            particles.forEach((particle, index) => {
+                const speed = 0.5 + (index % 3) * 0.2;
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
