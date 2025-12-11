@@ -10,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #f8f9fa;
@@ -18,7 +17,7 @@
             overflow-x: hidden;
             position: relative;
         }
-
+        /* Styles pour le Hero et la Navigation */
         body::before {
             content: '';
             position: fixed;
@@ -32,7 +31,6 @@
             pointer-events: none;
             z-index: 0;
         }
-
         .particles {
             position: fixed;
             top: 0;
@@ -42,7 +40,6 @@
             z-index: 0;
             pointer-events: none;
         }
-
         .particle {
             position: absolute;
             width: 2px;
@@ -52,14 +49,12 @@
             animation: float 20s infinite;
             box-shadow: 0 0 5px rgba(150, 150, 150, 0.2);
         }
-
         @keyframes float {
             0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
             100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -67,7 +62,6 @@
             position: relative;
             z-index: 1;
         }
-
         .hero {
             min-height: 100vh;
             display: flex;
@@ -77,7 +71,6 @@
             text-align: center;
             position: relative;
         }
-
         .hero-name {
             font-size: 5em;
             font-weight: 900;
@@ -89,7 +82,6 @@
             animation: slideDown 1s ease-out;
             letter-spacing: -0.02em;
         }
-
         .hero-title {
             font-size: 2em;
             font-weight: 600;
@@ -97,22 +89,14 @@
             margin-bottom: 50px;
             animation: slideUp 1s ease-out;
         }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -120,23 +104,19 @@
             transform: translateX(-50%);
             animation: bounce 2s infinite;
         }
-
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
             40% { transform: translateX(-50%) translateY(-20px); }
             60% { transform: translateX(-50%) translateY(-10px); }
         }
-
         .projects-section {
             padding: 100px 0;
             position: relative;
         }
-
         .section-header {
             text-align: center;
             margin-bottom: 80px;
         }
-
         .section-title {
             font-size: 3em;
             font-weight: 700;
@@ -146,19 +126,16 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .section-subtitle {
             font-size: 1.2em;
             color: #5a5a5a;
         }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-bottom: 60px;
         }
-
         .project-button {
             background: #ffffff;
             border: 2px solid #e0e0e0;
@@ -170,7 +147,6 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-
         .project-button::before {
             content: '';
             position: absolute;
@@ -181,34 +157,28 @@
             background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03), transparent);
             transition: left 0.5s;
         }
-
         .project-button:hover::before {
             left: 100%;
         }
-
         .project-button:hover {
             transform: translateY(-10px);
             border-color: #2c3e50;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
             background: #ffffff;
         }
-
         .project-button.active {
             border-color: #2c3e50;
             background: #2c3e50;
             box-shadow: 0 8px 30px rgba(44, 62, 80, 0.3);
         }
-
         .project-button.active .project-name {
             color: #ffffff;
         }
-
         .project-icon {
             font-size: 3em;
             margin-bottom: 20px;
             display: block;
         }
-
         .project-name {
             font-size: 1.4em;
             font-weight: 700;
@@ -216,7 +186,6 @@
             color: #2c3e50;
             transition: color 0.3s;
         }
-
         .project-details {
             display: none;
             background: #ffffff;
@@ -229,11 +198,9 @@
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
         }
-
         .project-details.active {
             display: block;
         }
-
         .project-details::before {
             content: '';
             position: absolute;
@@ -243,7 +210,6 @@
             height: 4px;
             background: linear-gradient(90deg, #2c3e50, #34495e, #1a1a1a);
         }
-
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -254,7 +220,6 @@
                 transform: translateY(0);
             }
         }
-
         .details-header {
             display: flex;
             align-items: center;
@@ -263,7 +228,6 @@
             padding-bottom: 30px;
             border-bottom: 1px solid #e0e0e0;
         }
-
         .details-title {
             font-size: 2.5em;
             font-weight: 700;
@@ -272,7 +236,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .close-btn {
             background: rgba(44, 62, 80, 0.1);
             border: 2px solid #2c3e50;
@@ -287,26 +250,22 @@
             transition: all 0.3s;
             font-size: 1.5em;
         }
-
         .close-btn:hover {
             background: #2c3e50;
             color: white;
             transform: rotate(90deg);
         }
-
         .project-structure {
             display: grid;
             gap: 30px;
             margin-bottom: 40px;
         }
-
         .structure-section {
             background: #f8f9fa;
             padding: 30px;
             border-radius: 16px;
             border-left: 4px solid #2c3e50;
         }
-
         .structure-label {
             font-size: 0.9em;
             font-weight: 700;
@@ -318,23 +277,19 @@
             align-items: center;
             gap: 10px;
         }
-
         .structure-text {
             color: #4a4a4a;
             line-height: 1.8;
             font-size: 1.05em;
         }
-
         .structure-text strong {
             color: #2c3e50;
             font-weight: 600;
         }
-
         .structure-list {
             list-style: none;
             padding: 0;
         }
-
         .structure-list li {
             padding: 12px 0;
             padding-left: 35px;
@@ -342,9 +297,8 @@
             color: #4a4a4a;
             line-height: 1.7;
         }
-
         .structure-list li::before {
-            content: '✓';
+            content: ' ✓ ';
             position: absolute;
             left: 0;
             color: #2c3e50;
@@ -352,12 +306,10 @@
             font-size: 1.5em;
             top: 10px;
         }
-
         .structure-list li strong {
             color: #2c3e50;
             font-weight: 600;
         }
-
         .industrial-competencies {
             background: #ffffff;
             padding: 35px;
@@ -366,7 +318,6 @@
             margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
-
         .competencies-title {
             font-size: 1.4em;
             font-weight: 700;
@@ -378,13 +329,11 @@
             padding-bottom: 15px;
             border-bottom: 2px solid #e0e0e0;
         }
-
         .competencies-list {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
-
         .competency-item {
             display: flex;
             align-items: center;
@@ -397,24 +346,97 @@
             border-radius: 8px;
             transition: all 0.3s;
         }
-
         .competency-item:hover {
             background: #2c3e50;
             color: #ffffff;
             transform: translateX(5px);
         }
-
         .competency-item::before {
-            content: '⚙️';
+            content: ' ⚙️ ';
             font-size: 1.2em;
         }
+
+        /* NOUVEAUX STYLES POUR LA GALERIE */
+        .project-gallery {
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+            background: #ffffff;
+            margin-top: 30px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* STYLES POUR LE ZOOM (LIGHTBOX) */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            max-height: 80vh; /* Ajusté pour laisser de la place à la légende */
+            border-radius: 10px;
+        }
+
+        .lightbox-caption {
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        /* FIN NOUVEAUX STYLES */
 
         @media (max-width: 1200px) {
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
         @media (max-width: 768px) {
             .hero-name {
                 font-size: 2.5em;
@@ -434,12 +456,14 @@
             .details-title {
                 font-size: 1.8em;
             }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Plus petit pour mobile */
+            }
         }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
-
     <div class="hero">
         <div class="container">
             <h1 class="hero-name">Loubna Msadk</h1>
@@ -454,59 +478,49 @@
             </svg>
         </div>
     </div>
-
     <div class="projects-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Projets & Réalisations</h2>
                 <p class="section-subtitle">Cliquez sur un projet pour découvrir les détails</p>
             </div>
-
             <div class="projects-grid">
                 <div class="project-button" onclick="showProject(1)">
-                    <span class="project-icon">📊</span>
+                    <span class="project-icon"> 📊 </span>
                     <div class="project-name">Business Intelligence Dashboard</div>
                 </div>
-
                 <div class="project-button" onclick="showProject(2)">
-                    <span class="project-icon">🏭</span>
+                    <span class="project-icon"> 🏭 </span>
                     <div class="project-name">Audit Qualité ISO 9001 IA</div>
                 </div>
-
                 <div class="project-button" onclick="showProject(3)">
-                    <span class="project-icon">🚗</span>
+                    <span class="project-icon"> 🚗 </span>
                     <div class="project-name">Voice of Customer Analytics</div>
                 </div>
-
                 <div class="project-button" onclick="showProject(4)">
-                    <span class="project-icon">🔧</span>
+                    <span class="project-icon"> 🔧 </span>
                     <div class="project-name">Optimisation SAV & CRM</div>
                 </div>
-
                 <div class="project-button" onclick="showProject(5)">
-                    <span class="project-icon">📈</span>
+                    <span class="project-icon"> 📈 </span>
                     <div class="project-name">Project Control Dashboard</div>
                 </div>
-
                 <div class="project-button" onclick="showProject(6)">
-                    <span class="project-icon">💊</span>
+                    <span class="project-icon"> 💊 </span>
                     <div class="project-name">Supply Chain Pharmaceutique IA</div>
                 </div>
             </div>
 
-            <!-- Projet 1 -->
             <div class="project-details" id="project-1">
                 <div class="details-header">
                     <h3 class="details-title">Business Intelligence Dashboard - Ventes</h3>
                     <div class="close-btn" onclick="closeProject()">×</div>
                 </div>
-
                 <div class="project-structure">
                     <div class="structure-section">
-                        <div class="structure-label">🔴 PROBLEM - Contexte & Problématique</div>
+                        <div class="structure-label"> 🔴 PROBLEM - Contexte & Problématique</div>
                         <div class="structure-text">
-                            <strong>Situation initiale :</strong> L'équipe commerciale gérait les données de ventes via des fichiers Excel dispersés et des rapports manuels hebdomadaires. Cette approche fragmentée créait plusieurs problèmes critiques :
-                            <br><br>
+                            <strong>Situation initiale :</strong> L'équipe commerciale gérait les données de ventes via des fichiers Excel dispersés et des rapports manuels hebdomadaires. Cette approche fragmentée créait plusieurs problèmes critiques : <br><br>
                             • <strong>Perte de temps :</strong> 2-3 jours nécessaires pour consolider les données et générer un rapport mensuel<br>
                             • <strong>Absence de visibilité temps réel :</strong> Impossibilité de suivre les performances quotidiennes ou hebdomadaires<br>
                             • <strong>Données incohérentes :</strong> Plusieurs versions de la vérité selon les sources (commercial, finance, stock)<br>
@@ -514,34 +528,28 @@
                             • <strong>Analyse superficielle :</strong> Pas de croisement possible entre segments clients, produits, régions et périodes
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">✅ SOLUTION - Architecture & Mise en Œuvre</div>
+                        <div class="structure-label"> ✅ SOLUTION - Architecture & Mise en Œuvre</div>
                         <div class="structure-text">
-                            <strong>Système de Business Intelligence intégré avec Power BI :</strong>
-                            <br><br>
+                            <strong>Système de Business Intelligence intégré avec Power BI :</strong><br><br>
                             <strong>1. Centralisation des données :</strong><br>
                             • Connexion automatique aux sources multiples (ERP, CRM, Excel)<br>
                             • ETL (Extract, Transform, Load) pour nettoyer et harmoniser les données<br>
                             • Base de données consolidée actualisée en temps réel<br><br>
-
                             <strong>2. Tableaux de bord stratégiques modulaires :</strong><br>
                             • Vue Exécutive : CA, marges, objectifs vs réalisé<br>
                             • Vue Commerciale : Performance par vendeur, pipeline de ventes<br>
                             • Vue Produits : Top/Flop produits, rotation des stocks<br>
                             • Vue Géographique : Analyse par région/ville avec cartographie<br><br>
-
                             <strong>3. Automatisation complète :</strong><br>
                             • Rafraîchissement automatique des données chaque nuit<br>
                             • Envoi programmé des rapports aux parties prenantes<br>
                             • Alertes automatiques sur dépassement/sous-performance des seuils<br><br>
-
                             <strong>Technologies déployées :</strong> Power BI Desktop & Service, DAX pour calculs avancés, Power Query pour transformations, intégration API
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
+                        <div class="structure-label"> 💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
                         <ul class="structure-list">
                             <li><strong>Efficacité opérationnelle :</strong> Réduction de 70% du temps consacré à l'analyse (de 3 jours à moins d'une journée) - libération de ressources pour des tâches à plus forte valeur</li>
                             <li><strong>Agilité décisionnelle :</strong> Passage d'une culture de reporting mensuel à un pilotage quotidien en temps réel - capacité de réaction immédiate aux signaux faibles</li>
@@ -551,9 +559,14 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="project-gallery">
+                    <div class="structure-label"> 🖼️ APERÇU DES INTERFACES ET LIVRABLES CLÉS</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item"><img src="Pictures/power bi.jpg" alt="Capture d'écran du Dashboard Power BI" onclick="openLightbox('Pictures/power bi.jpg', 'Capture d\'écran du Dashboard Power BI')"></div>
+                    </div>
+                </div>
                 <div class="industrial-competencies">
-                    <div class="competencies-title">🏭 Compétences en Ingénierie Industrielle</div>
+                    <div class="competencies-title"> 🏭 Compétences en Ingénierie Industrielle</div>
                     <div class="competencies-list">
                         <div class="competency-item">Analyse des performances opérationnelles</div>
                         <div class="competency-item">Gestion des indicateurs de performance (KPIs)</div>
@@ -563,19 +576,16 @@
                 </div>
             </div>
 
-            <!-- Projet 2 -->
             <div class="project-details" id="project-2">
                 <div class="details-header">
                     <h3 class="details-title">Plateforme d'Audit Qualité ISO 9001 Intelligente</h3>
                     <div class="close-btn" onclick="closeProject()">×</div>
                 </div>
-
                 <div class="project-structure">
                     <div class="structure-section">
-                        <div class="structure-label">🔴 PROBLEM - Contexte & Problématique</div>
+                        <div class="structure-label"> 🔴 PROBLEM - Contexte & Problématique</div>
                         <div class="structure-text">
-                            <strong>Situation initiale :</strong> Dans le contexte de production industrielle, les audits qualité ISO 9001 sont essentiels mais souffrent de limitations critiques dans leur approche traditionnelle :
-                            <br><br>
+                            <strong>Situation initiale :</strong> Dans le contexte de production industrielle, les audits qualité ISO 9001 sont essentiels mais souffrent de limitations critiques dans leur approche traditionnelle :<br><br>
                             • <strong>Process manuel chronophage :</strong> 3-5 jours nécessaires par auditeur pour traiter un chapitre ISO complet (documentation, entretiens, analyse)<br>
                             • <strong>Subjectivité humaine :</strong> Interprétation variable des réponses selon l'expérience de l'auditeur - manque de cohérence entre audits<br>
                             • <strong>Fréquence limitée :</strong> Audits réalisés 1-2 fois/an maximum à cause du coût en temps et ressources<br>
@@ -584,36 +594,30 @@
                             • <strong>Traçabilité faible :</strong> Historique des audits dispersé, suivi des actions correctives complexe
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">✅ SOLUTION - Architecture & Mise en Œuvre</div>
+                        <div class="structure-label"> ✅ SOLUTION - Architecture & Mise en Œuvre</div>
                         <div class="structure-text">
-                            <strong>Plateforme d'audit intelligente basée sur l'IA et le NLP :</strong>
-                            <br><br>
+                            <strong>Plateforme d'audit intelligente basée sur l'IA et le NLP :</strong><br><br>
                             <strong>1. Interface de questionnaire dynamique :</strong><br>
                             • Navigation structurée par les 10 chapitres ISO 9001 (Contexte, Leadership, Planification, Support, etc.)<br>
                             • 100+ questions couvrant l'ensemble du référentiel<br>
                             • Champs de réponse libre permettant descriptions détaillées<br>
                             • Upload de preuves documentaires (procédures, enregistrements)<br><br>
-
                             <strong>2. Moteur d'analyse sémantique (NLP) :</strong><br>
                             • TfidfVectorizer pour extraction des mots-clés pertinents<br>
                             • Détection automatique des formes négatives et lacunes (absence de, pas de, manque)<br>
                             • Classification supervisée par Machine Learning (Scikit-learn)<br>
                             • Scoring de conformité par question et par chapitre<br><br>
-
                             <strong>3. Évaluation instantanée et recommandations :</strong><br>
                             • Classification binaire : Conforme / Non Conforme avec degré de confiance<br>
                             • Génération automatique de recommandations ciblées par non-conformité détectée<br>
                             • Priorisation des actions (critique/majeur/mineur) selon impact<br>
                             • Rapport d'audit PDF exportable avec synthèse exécutive<br><br>
-
                             <strong>Technologies déployées :</strong> Python/Flask, Scikit-learn, TfidfVectorizer, Pandas, HTML/CSS/JavaScript, visualisation interactive
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
+                        <div class="structure-label"> 💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
                         <ul class="structure-list">
                             <li><strong>Gains de productivité massifs :</strong> Automatisation de 80% du processus (de 5 jours à 1 jour) - ressources auditeurs recentrées sur analyse et accompagnement terrain</li>
                             <li><strong>Objectivité et cohérence :</strong> Élimination du biais humain grâce à l'analyse IA standardisée - mêmes critères appliqués systématiquement avec précision de 92%</li>
@@ -624,9 +628,14 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="project-gallery">
+                    <div class="structure-label"> 🖼️ APERÇU DES INTERFACES ET LIVRABLES CLÉS</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item"><img src="Pictures/qualité1.jpg" alt="Capture d'écran de l'interface d'audit qualité" onclick="openLightbox('Pictures/qualité1.jpg', 'Capture d\'écran de l\'interface d\'audit qualité')"></div>
+                    </div>
+                </div>
                 <div class="industrial-competencies">
-                    <div class="competencies-title">🏭 Compétences en Management de la Qualité</div>
+                    <div class="competencies-title"> 🏭 Compétences en Management de la Qualité</div>
                     <div class="competencies-list">
                         <div class="competency-item">Systèmes de Management Qualité ISO 9001</div>
                         <div class="competency-item">Audit et conformité réglementaire</div>
@@ -636,19 +645,16 @@
                 </div>
             </div>
 
-            <!-- Projet 3 -->
             <div class="project-details" id="project-3">
                 <div class="details-header">
                     <h3 class="details-title">Voice of Customer Analytics - Secteur Automobile</h3>
                     <div class="close-btn" onclick="closeProject()">×</div>
                 </div>
-
                 <div class="project-structure">
                     <div class="structure-section">
-                        <div class="structure-label">🔴 PROBLEM - Contexte & Problématique</div>
+                        <div class="structure-label"> 🔴 PROBLEM - Contexte & Problématique</div>
                         <div class="structure-text">
-                            <strong>Situation initiale :</strong> Dans l'industrie automobile, les retours clients sur les composants critiques (freins, sièges, systèmes audio) représentent une mine d'or d'informations mais sont sous-exploités :
-                            <br><br>
+                            <strong>Situation initiale :</strong> Dans l'industrie automobile, les retours clients sur les composants critiques (freins, sièges, systèmes audio) représentent une mine d'or d'informations mais sont sous-exploités :<br><br>
                             • <strong>Volume de données massif :</strong> 500+ avis clients reçus quotidiennement via multiples canaux (SAV, réseaux sociaux, enquêtes satisfaction)<br>
                             • <strong>Traitement manuel inefficace :</strong> Lecture et classification manuelle prenant 2-3h/jour par analyste qualité - nombreux avis non traités<br>
                             • <strong>Insights perdus :</strong> Signaux faibles de défauts récurrents noyés dans la masse - réactivité limitée face aux problèmes émergents<br>
@@ -657,38 +663,32 @@
                             • <strong>Capitalisation faible :</strong> Apprentissages des retours clients peu structurés - pas de boucle d'amélioration continue systématique
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">✅ SOLUTION - Architecture & Mise en Œuvre</div>
+                        <div class="structure-label"> ✅ SOLUTION - Architecture & Mise en Œuvre</div>
                         <div class="structure-text">
-                            <strong>Plateforme SynapseAI - Voice of Customer Analytics :</strong>
-                            <br><br>
+                            <strong>Plateforme SynapseAI - Voice of Customer Analytics :</strong><br><br>
                             <strong>1. Module d'analyse des sentiments automatisée :</strong><br>
                             • Modèle de Machine Learning supervisé entraîné sur dataset automobile annoté<br>
                             • Classification binaire : Avis Positif / Négatif avec score de confiance<br>
                             • Traitement en temps réel de 500+ avis/jour avec précision de 89%<br>
                             • Catégorisation automatique par composant (freins, sièges, radio, etc.)<br><br>
-
                             <strong>2. Intégration API Hugging Face pour génération d'actions :</strong><br>
                             • Connexion à modèles LLM pour analyse contextuelle des avis négatifs<br>
                             • Génération automatique de recommandations techniques actionnables<br>
                             • Suggestions d'interventions correctives adaptées au type de défaut<br>
                             • Confidentialité des données garantie - traitement interne uniquement<br><br>
-
                             <strong>3. Double dashboard segmenté :</strong><br>
                             • <strong>Dashboard Public :</strong> Mise en avant des avis positifs, statistiques satisfaction, points forts produits<br>
                             • <strong>Dashboard Opérateur (accès restreint) :</strong><br>
-                              - File d'attente des avis négatifs triés par priorité (Urgent/Haute/Moyenne)<br>
-                              - Indicateurs visuels de gravité et récurrence<br>
-                              - Actions correctives suggérées par l'IA affichées directement<br>
-                              - Système de ticket pour suivi des interventions<br><br>
-
+                            - File d'attente des avis négatifs triés par priorité (Urgent/Haute/Moyenne)<br>
+                            - Indicateurs visuels de gravité et récurrence<br>
+                            - Actions correctives suggérées par l'IA affichées directement<br>
+                            - Système de ticket pour suivi des interventions<br><br>
                             <strong>Technologies déployées :</strong> Python/Flask, Scikit-learn, API Hugging Face, HTML5/CSS3/Bootstrap, Chart.js.
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
+                        <div class="structure-label"> 💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
                         <ul class="structure-list">
                             <li><strong>Efficience opérationnelle :</strong> Réduction de 65% du temps de traitement des réclamations (de 3h à 1h/jour) - ressources qualité réaffectées à l'analyse root cause et prévention</li>
                             <li><strong>Réactivité augmentée :</strong> Détection des problèmes critiques en temps réel vs 3-5 jours auparavant - intervention préventive avant escalade</li>
@@ -700,9 +700,21 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="project-gallery">
+                    <div class="structure-label"> 🖼️ APERÇU DES INTERFACES ET LIVRABLES CLÉS</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item"><img src="Pictures/voc1.jpg" alt="Analyse des sentiments client 1" onclick="openLightbox('Pictures/voc1.jpg', 'Analyse des sentiments client 1')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc2.jpg" alt="Analyse des sentiments client 2" onclick="openLightbox('Pictures/voc2.jpg', 'Analyse des sentiments client 2')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc3.jpg" alt="Analyse des sentiments client 3" onclick="openLightbox('Pictures/voc3.jpg', 'Analyse des sentiments client 3')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc4.jpg" alt="Analyse des sentiments client 4" onclick="openLightbox('Pictures/voc4.jpg', 'Analyse des sentiments client 4')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc5.jpg" alt="Analyse des sentiments client 5" onclick="openLightbox('Pictures/voc5.jpg', 'Analyse des sentiments client 5')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc6.jpg" alt="Analyse des sentiments client 6" onclick="openLightbox('Pictures/voc6.jpg', 'Analyse des sentiments client 6')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc7.jpg" alt="Analyse des sentiments client 7" onclick="openLightbox('Pictures/voc7.jpg', 'Analyse des sentiments client 7')"></div>
+                        <div class="gallery-item"><img src="Pictures/voc8.jpg" alt="Analyse des sentiments client 8" onclick="openLightbox('Pictures/voc8.jpg', 'Analyse des sentiments client 8')"></div>
+                    </div>
+                </div>
                 <div class="industrial-competencies">
-                    <div class="competencies-title">🏭 Compétences en Excellence Opérationnelle</div>
+                    <div class="competencies-title"> 🏭 Compétences en Excellence Opérationnelle</div>
                     <div class="competencies-list">
                         <div class="competency-item">Voice of Customer (VoC) & Six Sigma</div>
                         <div class="competency-item">Analyse des défauts et FMEA</div>
@@ -712,19 +724,16 @@
                 </div>
             </div>
 
-            <!-- Projet 4 -->
             <div class="project-details" id="project-4">
                 <div class="details-header">
                     <h3 class="details-title">Optimisation SAV & CRM - Renault Khawla Auto</h3>
                     <div class="close-btn" onclick="closeProject()">×</div>
                 </div>
-
                 <div class="project-structure">
                     <div class="structure-section">
-                        <div class="structure-label">🔴 PROBLEM - Contexte & Problématique</div>
+                        <div class="structure-label"> 🔴 PROBLEM - Contexte & Problématique</div>
                         <div class="structure-text">
-                            <strong>Situation initiale :</strong> Chez Renault Khawla Auto, le processus de gestion des rendez-vous SAV reposait sur une organisation traditionnelle générant plusieurs inefficiences :
-                            <br><br>
+                            <strong>Situation initiale :</strong> Chez Renault Khawla Auto, le processus de gestion des rendez-vous SAV reposait sur une organisation traditionnelle générant plusieurs inefficiences :<br><br>
                             • <strong>Gestion manuelle des rendez-vous :</strong> Appels téléphoniques, agenda papier ou Excel - risques d'erreurs et de double réservation<br>
                             • <strong>Temps morts importants :</strong> 20-30% du temps atelier perdu entre interventions par manque de planification optimale<br>
                             • <strong>Tâches administratives répétitives :</strong> Saisie multiple des mêmes données client (téléphone, CRM, facture) - perte de productivité opérateur<br>
@@ -734,38 +743,30 @@
                             • <strong>Satisfaction client impactée :</strong> Attentes non gérées, rappels manuels oubliés, expérience client incohérente
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">✅ SOLUTION - Architecture & Mise en Œuvre</div>
+                        <div class="structure-label"> ✅ SOLUTION - Architecture & Mise en Œuvre</div>
                         <div class="structure-text">
-                            <strong>Digitalisation complète avec CRM intégré et optimisation Lean :</strong>
-                            <br><br>
+                            <strong>Digitalisation complète avec CRM intégré et optimisation Lean :</strong><br><br>
                             <strong>1. Système de gestion des rendez-vous centralisé :</strong><br>
                             • Module de prise de RDV en ligne + interface réceptionniste<br>
                             • Planning dynamique avec visualisation temps réel de la charge atelier<br>
                             • Alertes automatiques de confirmation/rappel par SMS ou email<br>
                             • Allocation intelligente des créneaux selon type d'intervention et compétences technicien<br><br>
-
                             <strong>2. CRM unifié pour suivi client 360° :</strong><br>
                             • Base de données client unique avec historique complet des interventions<br>
                             • Fiche véhicule détaillée (kilométrage, historique entretiens, pièces remplacées)<br>
                             • Notes et recommandations techniciens accessibles par toute l'équipe<br>
                             • Segmentation client pour actions marketing ciblées (entretien périodique, promotions)<br><br>
-
                             <strong>3. Optimisation Lean du processus :</strong><br>
                             • <strong>Value Stream Mapping (VSM) :</strong> Cartographie du flux actuel, identification des gaspillages<br>
                             • <strong>Élimination des Muda :</strong> Suppression des tâches sans valeur ajoutée (double saisie, recherche d'info, attentes)<br>
                             • <strong>Standardisation 5S :</strong> Organisation digitale standardisée, documentation accessible, processus clarifiés<br>
                             • <strong>Flux tiré :</strong> Planification basée sur la demande réelle, réduction des temps d'attente<br><br>
-
-
-
                             <strong>Technologies déployées :</strong> CRM sur mesure, interface web responsive, base de données relationnelle, tableaux de bord Power BI
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
+                        <div class="structure-label"> 💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
                         <ul class="structure-list">
                             <li><strong>Productivité atelier optimisée :</strong> Réduction de 45% des temps morts (de 30% à 15%) grâce à la planification intelligente - augmentation directe du nombre d'interventions/jour</li>
                             <li><strong>Efficience opérateur SAV :</strong> Gain de 60% de productivité sur tâches administratives - recentrage sur activités à valeur ajoutée (diagnostic, réparation)</li>
@@ -774,12 +775,18 @@
                             <li><strong>Visibilité managériale :</strong> Dashboards temps réel pour pilotage charge de travail, identification goulets d'étranglement, allocation optimale ressources</li>
                             <li><strong>Expérience client améliorée :</strong> Rappels automatiques (0 oubli), historique accessible, recommandations personnalisées - satisfaction +25%</li>
                             <li><strong>Capacité commerciale :</strong> Temps libéré permet prospection active, fidélisation via relances entretiens préventifs</li>
-
+                        </ul>
                     </div>
                 </div>
-
+                <div class="project-gallery">
+                    <div class="structure-label"> 🖼️ APERÇU DES INTERFACES ET LIVRABLES CLÉS</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item"><img src="Pictures/khawlaauto1.jpg" alt="Capture d'écran du CRM/Planning SAV 1" onclick="openLightbox('Pictures/khawlaauto1.jpg', 'Capture d\'écran du CRM/Planning SAV 1')"></div>
+                        <div class="gallery-item"><img src="Pictures/khawlaauto2.jpg" alt="Capture d'écran du CRM/Planning SAV 2" onclick="openLightbox('Pictures/khawlaauto2.jpg', 'Capture d\'écran du CRM/Planning SAV 2')"></div>
+                    </div>
+                </div>
                 <div class="industrial-competencies">
-                    <div class="competencies-title">🏭 Compétences en Lean Management</div>
+                    <div class="competencies-title"> 🏭 Compétences en Lean Management</div>
                     <div class="competencies-list">
                         <div class="competency-item">Lean Manufacturing & VSM</div>
                         <div class="competency-item">Élimination des gaspillages (Muda)</div>
@@ -789,19 +796,16 @@
                 </div>
             </div>
 
-            <!-- Projet 5 -->
             <div class="project-details" id="project-5">
                 <div class="details-header">
                     <h3 class="details-title">Project Control Dashboard - JESA Engineering</h3>
                     <div class="close-btn" onclick="closeProject()">×</div>
                 </div>
-
                 <div class="project-structure">
                     <div class="structure-section">
-                        <div class="structure-label">🔴 PROBLEM - Contexte & Problématique</div>
+                        <div class="structure-label"> 🔴 PROBLEM - Contexte & Problématique</div>
                         <div class="structure-text">
-                            <strong>Situation initiale :</strong> Au sein du département Project Control de JESA Engineering, la gestion des projets d'ingénierie complexes faisait face à des défis majeurs :
-                            <br><br>
+                            <strong>Situation initiale :</strong> Au sein du département Project Control de JESA Engineering, la gestion des projets d'ingénierie complexes faisait face à des défis majeurs :<br><br>
                             • <strong>Reporting manuel chronophage :</strong> 1-2 jours/semaine dédiés par Project Controller à la préparation des rapports de performance (extraction données, calculs, mise en forme)<br>
                             • <strong>Earned Value Management (EVM) complexe :</strong> Calcul manuel des indicateurs (CPI, SPI, EAC, VAC, TCPI) - risques d'erreurs et incohérences<br>
                             • <strong>Visibilité limitée :</strong> Rapports statiques PDF/Excel difficiles à interpréter pour non-initiés - décideurs perdus dans les chiffres<br>
@@ -811,49 +815,41 @@
                             • <strong>Pas d'analyse prédictive :</strong> Focus sur données historiques sans capacité à identifier signaux d'alerte précoces
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">✅ SOLUTION - Architecture & Mise en Œuvre</div>
+                        <div class="structure-label"> ✅ SOLUTION - Architecture & Mise en Œuvre</div>
                         <div class="structure-text">
-                            <strong>Tableau de bord exécutif intelligent avec automatisation EVM et IA :</strong>
-                            <br><br>
+                            <strong>Tableau de bord exécutif intelligent avec automatisation EVM et IA :</strong><br><br>
                             <strong>1. Architecture modulaire évolutive :</strong><br>
                             • Module Vue Exécutive : Synthèse projet (budget, avancement, indices performance)<br>
                             • Module Earned Value : Calculs automatiques CPI, SPI, CV, SV avec interprétations<br>
                             • Module Prévisions : EAC (Estimate at Completion), VAC (Variance at Completion), TCPI<br>
                             • Module Analyse Tendances : Graphiques d'évolution temporelle des indices<br>
                             • Module Planning : Diagramme de Gantt interactif, jalons critiques<br><br>
-
                             <strong>2. Courbe en S et projections intelligentes :</strong><br>
                             • Modélisation mathématique de la courbe en S (Planned Value, Earned Value, Actual Cost)<br>
                             • Projection automatique sur base tendances actuelles<br>
                             • Scénarios What-if pour simuler impacts changements (ressources, délais)<br>
                             • Identification automatique des écarts critiques nécessitant action<br><br>
-
                             <strong>3. Automatisation complète des calculs EVM :</strong><br>
                             • Import automatique des données depuis ERP/outils planning<br>
                             • Formules EVM intégrées (CPI = EV/AC, SPI = EV/PV, EAC = BAC/CPI, etc.)<br>
                             • Rafraîchissement temps réel à chaque mise à jour données<br>
                             • Génération automatique de rapports PDF/PowerPoint formatés<br><br>
-
                             <strong>4. Assistant IA conversationnel (API Hugging Face) :</strong><br>
                             • Chatbot intégré pour questions sur statut projet en langage naturel<br>
                             • "Quel est le CPI actuel et que signifie-t-il ?" → Réponse contextualisée<br>
                             • Génération automatique de recommandations stratégiques basées sur tendances<br>
                             • Alertes proactives (ex : "CPI < 0.9 détecté, actions correctives suggérées")<br><br>
-
                             <strong>5. Tableaux de bord interactifs :</strong><br>
                             • Visualisations dynamiques (graphiques, jauges, indicateurs colorés)<br>
                             • Drill-down possible par lot, phase, ressource<br>
                             • Comparaisons multi-projets pour benchmarking<br>
                             • Interface responsive accessible desktop/mobile<br><br>
-
                             <strong>Technologies déployées :</strong> Python/Flask, API Hugging Face, Chart.js/D3.js, Pandas, algorithmes EVM, interface React, export PDF automatisé
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
+                        <div class="structure-label"> 💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
                         <ul class="structure-list">
                             <li><strong>Gains de temps massifs :</strong> Réduction de 75% du temps de préparation rapports (de 2 jours à 4h/semaine) - Project Controllers recentrés sur analyse et support équipe projet</li>
                             <li><strong>Fiabilité des données :</strong> Élimination des erreurs de calcul manuel - cohérence garantie entre tous les indicateurs EVM</li>
@@ -868,9 +864,17 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="project-gallery">
+                    <div class="structure-label"> 🖼️ APERÇU DES INTERFACES ET LIVRABLES CLÉS</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item"><img src="Pictures/jesa1.jpg" alt="Project Control Dashboard JESA 1" onclick="openLightbox('Pictures/jesa1.jpg', 'Project Control Dashboard JESA 1')"></div>
+                        <div class="gallery-item"><img src="Pictures/jesa2.jpg" alt="Project Control Dashboard JESA 2" onclick="openLightbox('Pictures/jesa2.jpg', 'Project Control Dashboard JESA 2')"></div>
+                        <div class="gallery-item"><img src="Pictures/jesa3.jpg" alt="Project Control Dashboard JESA 3" onclick="openLightbox('Pictures/jesa3.jpg', 'Project Control Dashboard JESA 3')"></div>
+                        <div class="gallery-item"><img src="Pictures/jesa4.jpg" alt="Project Control Dashboard JESA 4" onclick="openLightbox('Pictures/jesa4.jpg', 'Project Control Dashboard JESA 4')"></div>
+                    </div>
+                </div>
                 <div class="industrial-competencies">
-                    <div class="competencies-title">🏭 Compétences en Gestion de Projet Industriel</div>
+                    <div class="competencies-title"> 🏭 Compétences en Gestion de Projet Industriel</div>
                     <div class="competencies-list">
                         <div class="competency-item">Project Control & Earned Value Management</div>
                         <div class="competency-item">Gestion des coûts et délais (CPI, SPI)</div>
@@ -880,19 +884,16 @@
                 </div>
             </div>
 
-            <!-- Projet 6 -->
             <div class="project-details" id="project-6">
                 <div class="details-header">
                     <h3 class="details-title">Supply Chain Pharmaceutique IA - PharmaStock L.A.M.O</h3>
                     <div class="close-btn" onclick="closeProject()">×</div>
                 </div>
-
                 <div class="project-structure">
                     <div class="structure-section">
-                        <div class="structure-label">🔴 PROBLEM - Contexte & Problématique</div>
+                        <div class="structure-label"> 🔴 PROBLEM - Contexte & Problématique</div>
                         <div class="structure-text">
-                            <strong>Situation initiale :</strong> Le secteur pharmaceutique fait face à des défis critiques de gestion des stocks avec impacts directs sur la santé publique :
-                            <br><br>
+                            <strong>Situation initiale :</strong> Le secteur pharmaceutique fait face à des défis critiques de gestion des stocks avec impacts directs sur la santé publique :<br><br>
                             • <strong>Ruptures de stock fréquentes :</strong> Médicaments essentiels indisponibles pendant plusieurs jours - impact direct sur continuité des traitements patients<br>
                             • <strong>Gestion manuelle des commandes :</strong> Réception de 200+ emails fournisseurs/jour nécessitant extraction manuelle des données (références, quantités, prix, délais)<br>
                             • <strong>Surstockage coûteux :</strong> Immobilisation financière importante due à commandes empiriques basées sur l'expérience plutôt que données<br>
@@ -903,42 +904,37 @@
                             • <strong>Décisions réactives :</strong> Commandes urgentes en réponse aux ruptures plutôt qu'anticipation - coûts logistiques élevés
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">✅ SOLUTION - Architecture & Mise en Œuvre</div>
+                        <div class="structure-label"> ✅ SOLUTION - Architecture & Mise en Œuvre</div>
                         <div class="structure-text">
-                            <strong>PharmaStock L.A.M.O - Solution intelligente de Supply Chain pharmaceutique :</strong>
-                            <br><br>
+                            <strong>PharmaStock L.A.M.O - Solution intelligente de Supply Chain pharmaceutique :</strong><br><br>
                             <strong>1. Module de traitement intelligent des emails (NLP + LLM) :</strong><br>
                             • Connexion automatique à la boîte mail professionnelle<br>
                             • Extraction automatique des informations clés via NLP :<br>
-                              - Référence médicament (code, DCI, nom commercial)<br>
-                              - Quantités commandées/disponibles<br>
-                              - Prix unitaires et conditions tarifaires<br>
-                              - Délais de livraison fournisseurs<br>
+                            - Référence médicament (code, DCI, nom commercial)<br>
+                            - Quantités commandées/disponibles<br>
+                            - Prix unitaires et conditions tarifaires<br>
+                            - Délais de livraison fournisseurs<br>
                             • Utilisation de modèles LLM pour comprendre formats d'emails variés (non standardisés)<br>
                             • Classification automatique (commande fournisseur / demande client / alerte / facture)<br>
                             • Intégration directe dans base de données stock<br><br>
-
                             <strong>2. Système de prévision de la demande par IA :</strong><br>
                             • Algorithmes de Machine Learning analysant historiques de ventes<br>
                             • Prise en compte facteurs multiples :<br>
-                              - Saisonnalité (grippe hiver, allergies printemps)<br>
-                              - Tendances épidémiologiques locales<br>
-                              - Promotions et actions marketing<br>
-                              - Prescriptions médicales habituelles zone géographique<br>
+                            - Saisonnalité (grippe hiver, allergies printemps)<br>
+                            - Tendances épidémiologiques locales<br>
+                            - Promotions et actions marketing<br>
+                            - Prescriptions médicales habituelles zone géographique<br>
                             • Prévisions rolling sur 30 jours avec ajustement continu<br>
                             • Précision de 87% atteinte après 3 mois d'apprentissage<br><br>
-
                             <strong>3. Optimisation automatique des niveaux de stock :</strong><br>
                             • Calcul dynamique des seuils (stock de sécurité, point de commande, quantité économique)<br>
                             • Alertes automatiques multi-niveaux :<br>
-                              - Alerte préventive (stock approche seuil critique)<br>
-                              - Alerte urgente (rupture imminente < 3 jours)<br>
-                              - Alerte péremption (médicaments arrivant à échéance)<br>
+                            - Alerte préventive (stock approche seuil critique)<br>
+                            - Alerte urgente (rupture imminente < 3 jours)<br>
+                            - Alerte péremption (médicaments arrivant à échéance)<br>
                             • Suggestions de commande optimales (quantité + timing) pour minimiser coûts stockage<br>
                             • Priorisation automatique des commandes urgentes vs planifiées<br><br>
-
                             <strong>4. Dashboard décisionnel temps réel :</strong><br>
                             • Vue d'ensemble de l'inventaire avec indicateurs colorés (vert/orange/rouge)<br>
                             • Graphiques prédictifs de l'évolution des stocks sur 30 jours<br>
@@ -946,19 +942,16 @@
                             • Analyse de la performance (taux de service, rotation stock, coûts immobilisation)<br>
                             • Historique des commandes et tracking livraisons<br>
                             • Exports automatiques pour comptabilité et audits<br><br>
-
                             <strong>5. Module de gestion des fournisseurs :</strong><br>
                             • Base de données fournisseurs avec historique performance (délais, qualité, prix)<br>
                             • Scoring automatique pour aide à la sélection<br>
                             • Génération automatique de bons de commande formatés<br>
                             • Suivi des contrats et conditions négociées<br><br>
-
                             <strong>Technologies déployées :</strong> Python/Flask, modèles LLM (extraction emails), Scikit-learn (prévisions), Chart.js (visualisations), HTML/CSS/JavaScript, base de données relationnelle sécurisée
                         </div>
                     </div>
-
                     <div class="structure-section">
-                        <div class="structure-label">💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
+                        <div class="structure-label"> 💼 MANAGERIAL INSIGHTS - Impact & Valeur Ajoutée</div>
                         <ul class="structure-list">
                             <li><strong>Continuité de service garantie :</strong> Prévention des ruptures de stock avec précision 87% - disponibilité médicaments critique pour santé patients assurée</li>
                             <li><strong>Automatisation massive :</strong> Traitement intelligent de 200+ emails/jour sans intervention manuelle - gain de 2-3h/jour réaffecté au conseil pharmaceutique</li>
@@ -975,9 +968,17 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="project-gallery">
+                    <div class="structure-label"> 🖼️ APERÇU DES INTERFACES ET LIVRABLES CLÉS</div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item"><img src="Pictures/pharmastoc1.jpg" alt="Dashboard Supply Chain Pharma 1" onclick="openLightbox('Pictures/pharmastoc1.jpg', 'Dashboard Supply Chain Pharma 1')"></div>
+                        <div class="gallery-item"><img src="Pictures/pharmastoc2.jpg" alt="Dashboard Supply Chain Pharma 2" onclick="openLightbox('Pictures/pharmastoc2.jpg', 'Dashboard Supply Chain Pharma 2')"></div>
+                        <div class="gallery-item"><img src="Pictures/pharmastoc3.jpg" alt="Dashboard Supply Chain Pharma 3" onclick="openLightbox('Pictures/pharmastoc3.jpg', 'Dashboard Supply Chain Pharma 3')"></div>
+                        <div class="gallery-item"><img src="Pictures/pharmastoc4.jpg" alt="Dashboard Supply Chain Pharma 4" onclick="openLightbox('Pictures/pharmastoc4.jpg', 'Dashboard Supply Chain Pharma 4')"></div>
+                    </div>
+                </div>
                 <div class="industrial-competencies">
-                    <div class="competencies-title">🏭 Compétences en Supply Chain & Logistique</div>
+                    <div class="competencies-title"> 🏭 Compétences en Supply Chain & Logistique</div>
                     <div class="competencies-list">
                         <div class="competency-item">Gestion des stocks et prévisions</div>
                         <div class="competency-item">Supply Chain Management & Optimisation</div>
@@ -986,7 +987,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-image" src="" alt="Image zoomée">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
     </div>
 
@@ -1002,7 +1009,6 @@
                 container.appendChild(particle);
             }
         }
-
         createParticles();
 
         let currentProject = null;
@@ -1012,13 +1018,10 @@
                 document.getElementById('project-' + currentProject).classList.remove('active');
                 document.querySelectorAll('.project-button')[currentProject - 1].classList.remove('active');
             }
-
             const projectElement = document.getElementById('project-' + projectId);
             projectElement.classList.add('active');
             document.querySelectorAll('.project-button')[projectId - 1].classList.add('active');
-
             currentProject = projectId;
-
             setTimeout(() => {
                 projectElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
@@ -1029,7 +1032,6 @@
                 document.getElementById('project-' + currentProject).classList.remove('active');
                 document.querySelectorAll('.project-button')[currentProject - 1].classList.remove('active');
                 currentProject = null;
-
                 document.querySelector('.projects-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
@@ -1042,6 +1044,24 @@
                 particle.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
+
+        // FONCTIONS JAVASCRIPT POUR LE ZOOM (LIGHTBOX)
+        function openLightbox(imageSrc, captionText) {
+            const lightbox = document.getElementById('lightbox-overlay');
+            const img = document.getElementById('lightbox-image');
+            const caption = document.getElementById('lightbox-caption');
+
+            img.src = imageSrc;
+            caption.textContent = captionText;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Empêche le défilement du fond
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox-overlay');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Rétablit le défilement du fond
+        }
     </script>
 </body>
 </html>
